@@ -15,7 +15,7 @@ module.exports={
            if (!user) {
                return res.send({message:'Could not find the provided email'})
            }
-           const token = jwt.sign({id: user.id}, process.env.RESET_PW_TOKEN, {expiresIn:'1m'});
+           const token = jwt.sign({id: user.id}, process.env.RESET_PW_TOKEN, {expiresIn:'5m'});
            //console.log(token)
            const emailData = {
             body: {
