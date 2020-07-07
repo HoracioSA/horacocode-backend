@@ -7,7 +7,7 @@ module.exports={
         const {email, password}=req.body;
         const [user] = await connection.select('*').from('users').where({email})
         if (!user) {
-            return res.send({message:'Could not find email'})
+            return res.send({message:'Could not find emmail prvided'})
         }
         const Is_Valid_Password=await compare(password, user.password);
         if (!Is_Valid_Password) {
