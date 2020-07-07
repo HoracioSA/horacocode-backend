@@ -32,4 +32,4 @@ jobs:
       run: pm2 stop horacode
       if: ${{failure()}}
     - name: Start pm2
-      run: pm2 start dist/index.js --name horacode
+      run: pm2 start dist/index.js --name horacode -f
