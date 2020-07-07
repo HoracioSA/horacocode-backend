@@ -23,19 +23,7 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
-    - name: Setup PostgreSQL
-      uses: harmon758/postgresql-action@v1.0.0
-      with:
-        postgresql version: 11
-        postgresql db: test
-        postgresql user: postgres  
-        postgresql password: root
-        postgresql port: 5432
-        postgresql host: localhost
-        postgresql client: pg  
-    - run: yarn install
-    - run: knex migrate:latest  
+        node-version: ${{ matrix.node-version }}  
     - name: Install dependencies
       run: npm install
     - name: Build project
