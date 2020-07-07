@@ -13,7 +13,7 @@ module.exports={
        try {
            const [user]=await connection.select('*').from('users').where({email})
            if (!user) {
-               return res.send({message:'Could not find the email'})
+               return res.send({message:'Could not find the provided email'})
            }
            const token = jwt.sign({id: user.id}, process.env.RESET_PW_TOKEN, {expiresIn:'1m'});
            //console.log(token)
