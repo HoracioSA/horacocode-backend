@@ -24,15 +24,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Install dependencies
-      run: npm install
-    - name: Build project
-      run: npm run build
-    - name: Stop pm2
-      run: pm2 stop horacode
-      if: ${{failure()}}
-    - name: Start pm2
-      run: pm2 start dist/index.js --name horacode -f
     - name: Setup PostgreSQL
       uses: harmon758/postgresql-action@v1.0.0
       with:
@@ -44,5 +35,14 @@ jobs:
         postgresql host: localhost
         postgresql client: pg  
     - run: yarn install
-    - run: knex migrate:latest
+    - run: knex migrate:latest  
+    - name: Install dependencies
+      run: npm install
+    - name: Build project
+      run: npm run build
+    - name: Stop pm2
+      run: pm2 stop horacode
+      if: ${{failure()}}
+    - name: Start pm2
+      run: pm2 start dist/index.js --name horacode -f
     - run: yarn start
