@@ -15,7 +15,7 @@
     "knex": "^0.21.1",
     "knex-migrate": "^1.7.4",
     "mailgen": "^2.0.13",
-    "nodemailer": "^6.4.10",
+    "nodemailer": "^6.4.16",
     "nodemailer-express-handlebars": "^4.0.0",
     "pg": "^8.2.1"
   },
